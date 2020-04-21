@@ -3404,7 +3404,7 @@ var Vector = _dereq_('../geometry/Vector');
     };
     
     /**
-     * Finds supporting vertices given two bodies along a given direction using hill-climbing.
+     * Finds supporting vertices given two bodies along a given direction using hill-climbing. hy
      * @method _findSupports
      * @private
      * @param {} bodyA

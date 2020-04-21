@@ -6278,7 +6278,7 @@ p5.prototype._warn = function(message) {
         }.bind(this)
       },
 
-      /**
+      /**h y
        * Two vectors representing adjacent half-diagonals of the box at its
        * current dimensions and orientation.
        * @property halfDiagonals

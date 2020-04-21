@@ -62602,7 +62602,7 @@ p5.prototype.filter = function(operation, value) {
  *   fill(c);
  *   noStroke();
  *   rect(25, 25, 50, 50);
- * }
+ * }hy
  * </code>
  * </div>
  *

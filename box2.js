@@ -1,7 +1,7 @@
 class Box2{
   constructor(x, y, width, height ) {
     var options = {
-        'restitution':0.8,
+        'restitution':1,
         'friction':3.0,
         'density':1.0
     }
@@ -11,6 +11,8 @@ class Box2{
     World.add(world, this.body);
   }
   display(){
+    
+    console.log(this.mass);
     if (this.body.speed<4){
     push();
     translate(this.body.position.x, this.body.position.y);

@@ -1,7 +1,7 @@
 class Box4{
   constructor(x, y, width, height ) {
     var options = {
-        'restitution':0.8,
+        'restitution':1,
         'friction':3.0,
         'density':1.0
     }

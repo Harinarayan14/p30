@@ -5,7 +5,7 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var gameState = "start";
-var score = 0;
+var tries1 = 0;
 
 
 function setup() {
@@ -15,6 +15,15 @@ function setup() {
   ground = new Ground(600,590,1200,20);
   ground1 = new Ground(600,10,1200,20);
   ground2 = new Ground(1000,250,300,20);
+
+  /*stack = Matter.Composites.stack(800,150,8,5,1,1,function(x,y){
+    return Bodies.rectangle(x,y,20,20);
+  })
+  World.add(world,stack);*/
+ 
+
+
+
   // first layer
   block1 = new Box1(600,560,20,40);
   block2 = new Box2(580,560,20,40);
@@ -100,7 +109,7 @@ function setup() {
 
   block66 = new Box1(1000,60,20,40);
   
-  stone = new Stone(200,400,50,50);
+  stone = new Stone(200,400,30);
   slingshot = new Slingshot(stone.body,{x:200,y:400});
 
 }
@@ -113,6 +122,9 @@ function draw() {
   ground1.display();
   ground2.display();
 
+  /*for (var a = 0;a<stack.bodies.length;a++){
+    rect(stack.bodies[a].position.x,stack.bodies[a].position.y,20,20);
+  }*/
   block1.display();
   block2.display();
   block3.display();
@@ -201,32 +213,10 @@ function draw() {
   slingshot.display();
   fill(255);
   textSize(20);
-  strokeWeight(1);
-  text("Tries:"+score,50,50)
-  
+  text("Tries : " +tries1,50,50);
+  text("Target : 10",50,100);
 }
-class Stone{
-  constructor(x,y,width,height) {
-      var options = {
-          'restitution':0.8,
-          'friction':1.0,
-          'density':1.0,
-          frictionAir :0.01
-      }
-      this.body = Bodies.rectangle(x, y, width, height, options);
-      this.width = width;
-      this.height = height;
-      this.image = loadImage("stone.png");
-      World.add(world, this.body);
-    }
-    display(){
-      push();
-      translate(this.body.position.x, this.body.position.y);
-      imageMode(CENTER);
-      image(this.image, 0, 0,this.width,this.width);
-      pop();
-    }
-}
+
 function mouseDragged(){
   if(gameState !== "play"){
   Matter.Body.setPosition(stone.body,{x:mouseX,y:mouseY});
@@ -235,7 +225,7 @@ function mouseDragged(){
 function mouseReleased(){
   slingshot.fly();
   gameState = "play";
-  score++;
+  tries1++;
 }
 function keyPressed(){
   if (keyCode === 32 ){
@@ -243,5 +233,4 @@ function keyPressed(){
     Matter.Body.setPosition(stone.body,{x:200,y:400});
     slingshot.attach(stone.body);
     }
-    
 }

@@ -32,7 +32,6 @@ class Slingshot{
         line(pointA.x-25, pointA.y, pointB.x-10, pointB.y);
         line(pointA.x-25, pointA.y, pointB.x+30, pointB.y);
         pop();
-        
     }
     }
     
