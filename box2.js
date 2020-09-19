@@ -12,7 +12,6 @@ class Box2{
   }
   display(){
     
-    console.log(this.mass);
     if (this.body.speed<4){
     push();
     translate(this.body.position.x, this.body.position.y);
